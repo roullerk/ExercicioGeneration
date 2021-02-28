@@ -11,8 +11,8 @@ public static void main (String[] args) {
 	int pessoaCalma = 0;
 	int mulherNervosa = 0, homemAgressivo = 0, outroCalmos = 0;
 	int pessoaNervosaMais40=0, pessoaCalmaMenos18=0;
-	char sexo'';
-	char humor='';
+	char sexo;
+	char humor;
 	char opcao = 'S';
 	int contador = 1;
 	//entrada
@@ -52,6 +52,9 @@ public static void main (String[] args) {
 	System.out.println("Continua? S-sim ou N-não:");
 	opcao = ler.next().toUpperCase().charAt(0);
 	contador++;
+	if (opcao !='S') {
+		break;
+	}
 }
 	System.out.println("Pessoas calmas:"+ pessoaCalma);
 	System.out.println("Mulher nervosa:");

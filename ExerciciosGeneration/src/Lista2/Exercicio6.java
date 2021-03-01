@@ -27,7 +27,7 @@ public static void main(String[] args) {
 		}
 	}while (numero != 0 );
 	media = contador/(qtdnumero-1);
-	System.out.println(qtdnumero-1);
+	
 	System.out.printf("Olá, a média dos valores multiplos de 3 são: %.2f", media);
 }
 }

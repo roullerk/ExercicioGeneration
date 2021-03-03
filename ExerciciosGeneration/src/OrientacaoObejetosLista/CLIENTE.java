@@ -8,13 +8,13 @@ public class CLIENTE {
 	char tipo;
 	public int anoNascimento;
 	
-	//construtor
+	
 	
 	//metodo (quero verificar a idade do cliente)
 	public int idade() {
 		return 2020 - anoNascimento;
 	}
-
+		//construtor
 	public String getNome() {
 		return nome;
 	}

@@ -24,7 +24,7 @@ public static void main(String[] args) {
 	System.out.print("Informe seu CPF: ");
 	cliente.cpf = ler.next();
 	
-	System.out.print("Sua data de nascimento: ");
+	System.out.print("Ano de nascimento: ");
 	cliente.anoNascimento = ler.nextInt();
 	
 	System.out.println("Tipo de conta que deseja:");

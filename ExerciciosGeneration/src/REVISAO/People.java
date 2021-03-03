@@ -52,6 +52,11 @@ public void setGenero(char genero) {
 	this.genero = genero;
 }
 
-
-
+//agora o metodo, ex metodo para descobrir a idade atual
+public int idade() {
+	return (2021 - anoNascimento);
+}
+public int idade(int anoAtual) {
+	return anoAtual - anoNascimento;
+}
 }

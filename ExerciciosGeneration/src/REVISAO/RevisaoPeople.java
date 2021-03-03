@@ -27,5 +27,14 @@ public static void main (String[] args) {
 	System.out.println("O nome da amizade é: "+amigo.getNome());
 
 	System.out.println("O nome do cliente é: "+cliente.getNome()+ " E seu ano de nascimento é "+ cliente.getAnoNascimento());
+	
+	if (cliente.idade()>=18) {
+		System.out.println("Cliente é adulto!");
+		System.out.println("Sua idade atual é:"+cliente.idade());
+	}
+	else {
+		System.out.println("Cliente é menor de idade!");
+		System.out.println("Sua idade atual é:"+cliente.idade());
+	}
 }
 }

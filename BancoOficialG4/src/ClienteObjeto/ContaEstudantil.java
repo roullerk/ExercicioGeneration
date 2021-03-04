@@ -3,41 +3,81 @@ package ClienteObjeto;
 public class ContaEstudantil extends ClienteDados {
 
 	
-	private double LimiteEstudantil;
-	private double LimiteEstudantilAtual;
-	//construtor
-	public ContaEstudantil(char contaPoupança, char contaCorrente, char contaEspecial, char contaEmpresarial,
-			char contaEstudantil) 
-	{
-		super(contaPoupança, contaCorrente, contaEspecial, contaEmpresarial, contaEstudantil);
+	private double LimiteEstudantil=5000.00;
+	
+//CONSTRUTOR DA SUB
+	public ContaEstudantil(char tipoConta, double limiteEstudantil) {
+		super(tipoConta);
+		LimiteEstudantil = limiteEstudantil;
+	}
+	//FIM DO CONSTRUTOR SUB
+	
+	//METODO
+	public void UsoLimite(double valor) {
+		if (saldoCliente<0) {
+			this.LimiteEstudantil = this.LimiteEstudantil + valor;
+			System.out.println("O seu limite disponível atual é: "+LimiteEstudantil);
+		}
+		else {
+			System.out.println("Você ainda não gastou seu limite!\nLimite atual: "+ LimiteEstudantil);
+		}
+	}//FIM METODO
 		
+	
+	
+	
+	//ENCAPSULAMENTO
+	public double getLimiteEstudantil() {
+		return LimiteEstudantil;
+	}
+	public void setLimiteEstudantil(double limiteEstudantil) {
+		LimiteEstudantil = limiteEstudantil;
+	}//ENCAPSULAMENTO
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//CONSTRUTOR
+	//public ContaEstudantil(int numeroContaCliente, double limiteEstudantil) {
+		//super(numeroContaCliente);
+		//LimiteEstudantil = limiteEstudantil;
+	//}
+	
+		//CONSTRUTOR SOBRECARGA
+	/*	public ContaEstudantil(String cpfCliente, int numeroContaCliente, boolean ativaCliente, double limiteEstudantil) {
+		super(cpfCliente, numeroContaCliente, ativaCliente);
+		this.LimiteEstudantil = limiteEstudantil;
 	}
 		
 		public ContaEstudantil(char tipoConta) {
 			super(tipoConta);
 		}
-	//condicionais
-		//public void tipoConta (char tipoConta) {
-		//	if (tipoConta == 'E') {
-				
-			//	System.out.println("Você optou pela conta Estudantil!");
-			//	System.out.println("O que deseja fazer agora? ");
-			//	System.out.println("Realizar Crédito (Retirar dinheiro) - Digite 'C': ");
-			//	System.out.println("Realizar Débito (Colocar dinheiro) - Digite 'D': ");
-			//	System.out.println("Realizar o Resgate de um empréstimo Estudantil? - Digite 'R': ");
-				
-			//}
-		//	}
-		public void tipoConta (char tipoConta) {
-		if (tipoConta == contaEstudantil) { //PERGUNTAR PARA O ED COMO PUXA
-			
+		//METODO
+		public void EmprestimoEstudantil  (double LimiteEstudantilAtual) {
+			LimiteEstudantilAtual = this.LimiteEstudantil + (super.saldoCliente);
 		}
-		}
+		//LimiteEstudantilAtual = LimiteEstudantil + (clienteSaldo);
+		//X = 5.000 + (2000)
+
 	public double getLimiteEstudantil() {
 		return LimiteEstudantil;
-	}
-	public double getLimiteEstudantilAtual() {
-		return LimiteEstudantilAtual;
+	}*/
+
 	}
 	
-}
+

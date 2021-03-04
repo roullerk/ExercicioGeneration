@@ -33,8 +33,7 @@ public static void main(String[] args) {
 		
 	
 		
-		System.out.println("Digite o valor:");
-		valor = ler.nextDouble();
+		
 		
 		
 		
@@ -68,6 +67,9 @@ public static void main(String[] args) {
 			}
 			//FIM ESCOLHA DE CONTA
 	
+			System.out.println("Digite o valor:");
+			valor = ler.nextDouble();
+			System.out.println("O valor do saldo atual é: "+cliente.getSaldoCliente());
 	
 	
 }

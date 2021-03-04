@@ -34,7 +34,8 @@ public class ContaEstudantil extends ClienteDados {
 		LimiteEstudantil = limiteEstudantil;
 	}//ENCAPSULAMENTO
 	
-	
+	//contaEspecial.setLimite(limite - this.getSaldo());
+
 	
 
 	

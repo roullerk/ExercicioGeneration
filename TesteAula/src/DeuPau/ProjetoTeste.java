@@ -84,7 +84,7 @@ public class ProjetoTeste {
 	// como vai ser debitado o valor da conta
 	public void debito(double valor) {
 		if(this.saldo>=valor) {
-			this.saldo = this.saldo - valor;
+			this.saldo = this.saldo - valor; // TIRANDO DINHEIRO
 			contador++;
 		}
 		// aqui ele tenta debitar mas o valor que tem na conta e no limite estudantil é menor do q a conta q ele qr pagar(debito)

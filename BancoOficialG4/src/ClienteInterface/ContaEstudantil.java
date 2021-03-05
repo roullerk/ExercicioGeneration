@@ -18,8 +18,7 @@ public static void main(String [] args) {
 	 boolean ativa;
 	 double limiteEstudantil; // aqui muda de tpo de conta para tipo de conta
 	 int numeroConta=0;
-	
-	
+
 	 
 	System.out.println("BEM-VINDO AO BANCO DiMAdeira");
 	System.out.println("SLOGAN");
@@ -32,9 +31,8 @@ public static void main(String [] args) {
 	System.out.println("1 - Conta Poupança\n2 - Conta Corrente\n3 - Conta Especial\n4 - Conta Empresarial\n5 - Estudantil: ");
 	tipoConta = leia.next().charAt(0);
 	
-	
 	//ESCOLHA TIPO CONTA
-		if (tipoConta == '1') {
+			if (tipoConta == '1') {
 				
 				System.out.println("A conta selecionada foi Poupança!");
 			}
@@ -61,11 +59,12 @@ public static void main(String [] args) {
 				cpfCliente = leia.next();
 				
 				ObjetoEstudante estudante = new ObjetoEstudante (nomeCliente, cpfCliente, numeroConta);
-					
-				System.out.printf("Olá Sr(a) %s , o numero da sua conta é: %d", nomeCliente, estudante.getNumeroConta());
-			
 				
+				System.out.printf("Olá Sr(a) %s , o numero da sua conta é: %d \n", nomeCliente, estudante.getNumeroConta());
+			
 				//LOOPING
+				for (int x =0; x<=10; x++) {
+					
 				do {
 					
 				System.out.println("Qual operação deseja realizar? ");
@@ -80,20 +79,27 @@ public static void main(String [] args) {
 					System.out.println("Opção selecionada INVALIDA!");
 				}
 				if (opcao == '1') {
+					System.out.println("Qual valor deseja creditar? ");
+					double valor = leia.nextDouble();
+					estudante.setValor(valor);
+					estudante.credito(valor);
+					System.out.printf("O saldo atual de sua conta é: %.2f"+ estudante.getSaldoCliente());
 					
-					estudante.credito(0);
+				}
+
+				if (opcao =='2') {
+					
+					System.out.println("Qual valor deseja debitar? ");
+					double valor = leia.nextDouble();
+					estudante.setValor(valor);
+					
+					estudante.debito(valor);
+					System.out.printf("O saldo atual da sua conta é: %.2f\n", estudante.getSaldoCliente());
 					
 				}
 				
-				
-				
-				
-				
-				
-				
 				}while (opcao != '1' && opcao != '2');  //FINAL LOOPING
-				
-				
+					
 			}
 			if (tipoConta == '6') {
 				
@@ -101,16 +107,13 @@ public static void main(String [] args) {
 			}
 			//FIM ESCOLHA DE CONTA
 	
-	
-	
-	
-}
+			}
 	else {
 		System.out.println("Você encerrou a operação!");
 	}
 }
 
-	
+}
 }
 
 

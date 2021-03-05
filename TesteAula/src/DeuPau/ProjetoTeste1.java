@@ -30,7 +30,12 @@ package DeuPau;
 			
 			System.out.println("Deseja criar sua conta?\n (S)sim ou (N)não:  ");
 			opcao = leia.nextLine().toUpperCase().charAt(0);
-				if (opcao == 'S')
+				
+			
+			
+			
+			
+			if (opcao == 'S')
 				{
 					System.out.println("Qual tipo de conta você deseja criar?\n[1]Conta Poupança\n"
 						+ "[2]Conta Corrente\n[3]Conta Especial\n[4]Conta Empresa\n[5]Conta Estudantil" );//aqui ele pergunta ql tipo de conta vc qr criar

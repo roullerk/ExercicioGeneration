@@ -1,20 +1,21 @@
 package ClienteObjeto;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class ObjetoEstudante {
 	
-	private String nomeCliente;
-	private char tipoConta;
-	private int contador;
-	private String cpfCliente;
-	protected double saldoCliente;
-	private boolean ativa;
-	private double limiteEstudantil;
-	private int numeroConta;
-	Random aleatorio = new Random();
-	
-	
+	private String nomeCliente; //SUPER
+	private char tipoConta; //SUPER
+	private int contador; //SUPER
+	private String cpfCliente; //SUPER
+	protected double saldoCliente; //SUPER
+	private boolean ativa;//SUPER
+	private double limiteEstudantil = 5000.00; //ESTUDANTE
+	private int numeroConta;//SUPER
+	Random aleatorio = new Random(); //SUPER
+	Scanner leia = new Scanner(System.in);
+	double valor =0; //SUPER
 	
 	//CONSTRUTOR - VOU PERGUNTAR ISSO PARA O CLIENTE NA MINHA MAIN!!!
 	public ObjetoEstudante(String nomeCliente, String cpfCliente) {
@@ -81,15 +82,21 @@ public class ObjetoEstudante {
 	public double getSaldoCliente() {
 		return saldoCliente;
 	}
-	
-	
-	//FIM GET E SET
+
+
+	public double getValor() {
+		return valor;
+	}
+
+	public void setValor(double valor) {
+		this.valor = valor;
+	}//FIM GET E SET
 
 	//INICIO METODO
 	public void credito(double credito) { //ESTOU COLOCANDO DINHEIRO NA CONTA
 		
 		if(credito > 0) {
-			this.saldoCliente = this.saldoCliente + credito;
+			this.saldoCliente = this.saldoCliente + credito; //FORMULA PARA ADD DINHEIRO NO SALDO
 			System.out.printf("O valor R$ %.2f foi inserido em sua conta!\n", credito);
 		}
 		else if(credito == 0) {
@@ -101,20 +108,42 @@ public class ObjetoEstudante {
 			System.out.println("Impossivel completar a transação! Tente outro valor.");
 		}
 	}
-	public void debito(double debito) { //ESTOU TIRANDO DINHEIRO DA CONTA
-		if(debito <= this.getSaldoCliente()) 
-		{
-			this.saldoCliente = this.getSaldoCliente() - debito;
-			System.out.printf("Saque solicitado de R$ %.2f realizado! \n", debito);
-			System.out.printf("Seu saldo atual é de R$ %.2f \n", this.getSaldoCliente());
+	public void debito(double valor) {
+		
+		if (valor<=getSaldoCliente())	{
 			
-		}else {
-			System.out.printf("Você não possuí saldo suficiente! \n");
+			this.saldoCliente=this.saldoCliente-valor;
+			
+			System.out.println("Transação realizada com sucesso, seu saldo atual é: "+ getSaldoCliente());
+			System.out.println("Valor disponivel no Limite Estudantil: "+getLimiteEstudantil());
+			
+		}
+		if (valor > getSaldoCliente() && valor<=limiteEstudantil+getSaldoCliente()) {
+		
+			System.out.println("Você não tem saldo suficiente para realizar a operação!");
+			System.out.println("Deseja utilizar o empréstimo Estudantil? ");
+			System.out.println("Digite 1 para SIM e qualquer tecla para CANCELAR a operação!");
+			char opcao = leia.next().charAt(contador);
+			
+			if (opcao == '1') {
+				System.out.println("Qual valor deseja resgatar do Emprestimo estudantil? ");
+				double valorEmprestimoEstudantil = leia.nextDouble();
+				this.limiteEstudantil = this.limiteEstudantil - valorEmprestimoEstudantil;
+				this.saldoCliente = this.saldoCliente + valorEmprestimoEstudantil - valor;
+				System.out.println("Você utilizou o limite Estudantil!");
+				System.out.println("Valor disponivel no Limite Estudantil: "+ getLimiteEstudantil());
+				System.out.printf("Você retirou: %.2f\n", valor);
+			}
+			else {
+				System.out.println("Operação CANCELADA!!!");
+			}
 		
 		}
+		if (valor > getSaldoCliente() && valor>limiteEstudantil+getSaldoCliente()) {
+			System.out.println("Você não possuí saldo em sua conta e nem limite estudantil disponível!");
+			System.out.println("Operação cancelada!");
+		}
+	
 	}
-	
-	
-	
 	
 }

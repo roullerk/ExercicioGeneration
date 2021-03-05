@@ -33,8 +33,6 @@ public class Zoologico {
 			System.out.println("Digite a idade de seu animal: ");
 			int idade = leia.nextInt();
 			
-		
-			
 			if (tipo == '1') {
 				System.out.println("Você escolheu o Doguineo: ");
 				lista.add(new Cachorro(nome, idade));	
@@ -48,14 +46,12 @@ public class Zoologico {
 				System.out.println("Você escolheu o Preguiça");
 				lista.add(new Preguica(nome,idade));
 			}
-			else {
-				System.out.println("Você digitou um número invalido!!");
-			}
+			
 		}
 		
 		System.out.println("Animal(is) escolhido(s): ");
 		for (Animal animal:lista) {
-			System.out.println("nome: "+animal.getNome()+" A idade dele é: "+animal.getIdade());
+			System.out.println("nome "+animal.getNome()+" A idade dele é "+animal.getIdade());
 			
 			animal.EmiteSom();
 			animal.Acao();
